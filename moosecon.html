@@ -1,0 +1,756 @@
+<!DOCTYPE HTML>
+<html lang="en-US" class="fade nonumbers">
+<!-- 
+  ^ You can control a few things with the <html> element's classes:
+
+  "fade"      - smooth fade between slides
+  "nonumbers" - remove the slide numbering after the progress bar
+-->
+
+<head>
+  <title>Making HTML5 work with Firefox OS  - Chris Heilmann</title>
+  <!-- 
+    ^ Don't forget a good title - they show up as bookmarks and in Google 
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1274, user-scalable=no">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+  <style type="text/css">
+    /* Add your own styles here */
+    .talkdescription {
+      font-size: 12px;
+      color: #fff;
+      width: 80%;
+    }
+    .full .talkdescription {
+      display: none;
+    }
+    .slide blockquote.lots {
+      font-size: 30px;
+    }
+    .demourl { 
+      bottom: 20px;
+    }
+    .quotesource::before {
+      content: '~';
+    }
+    #reveal {
+      float: right;
+      margin: 20px 0 0 20px;
+      background: #fff;
+      position: relative;
+    }
+    #reveal img {
+      width: 200px;
+      z-index: 5;
+      display: block;
+      opacity: 0.5;
+      -webkit-transition: 2s;
+      -moz-transition: 2s;
+      -o-transition: 2s;
+      transition: 2s;
+    }
+    #reveal:hover img {
+      opacity: 1;
+    }
+    .full #recycle h2 {
+      margin-top: -40px;
+    }
+    ul.lots li {
+      float: left;
+      width: 50%;
+    }
+  </style>
+</head>
+<body class="list">
+
+  <header class="caption">
+    <h1>Making HTML5 work with Firefox OS</h1>
+    <p class="footer">Chris Heilmann, <a href="http://twitter.com/codepo8">@codepo8</a></p>
+  </header>
+  <aside class="talkdescription">
+    <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate.</p>
+  </aside>
+
+<!-- 
+  The following is a slide, it needs a class of "slide" and it doesn't 
+  hurt to keep the right semantic elements in there, too.
+  IMPORTANT: each slide needs its own unique ID - this will become its
+  URL and this is how this slide system works!
+-->
+
+  <div id="cover" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Making HTML5 work with Firefox OS</h2>
+      </header>
+      <img src="pictures/moosecon/foxphone.jpg" alt="firefox phone" class="middle">
+      <small class="byline">
+        Chris Heilmann, Moosecon, Cebit 2013, Hannover, Germany, 06/03/2013 
+      </small>
+    <footer class="notes">
+      In this talk I will show the opportunities Firefox OS brings to the HTML5 space.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="mwc" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Mobile World Congress 2013</h2>
+      </header>
+      <img src="pictures/moosecon/firefoxos-booth.jpg" alt="Mobile World Congress" class="middle shadow">
+    <footer class="notes">
+      This year Firefox made a big splash at the Mobile World Congress in Barcelona. 
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="mwc2" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Mobile World Congress 2013</h2>
+      </header>
+      <img src="pictures/moosecon/firefoxos-booth-packed.jpg" alt="Mobile World Congress" class="middle shadow">
+    <footer class="notes">
+      A really massive splash. This is what the booth looked like almost all the time - packed full of people.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="mwc3" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>The star of the show</h2>
+      </header>
+      <img src="pictures/moosecon/photoshoot-firefoxos.jpg" alt="Firefox phone" class="middle shadow">
+    <footer class="notes">
+      The star was our announcement that Firefox OS - a mere prototyppe demo last year - will come out this year and we are partnering with four hardware partners and nineteen mobile providers.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="mwc4" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Explaining Firefox OS</h2>
+      </header>
+      <img src="pictures/moosecon/explaining-firefoxos.jpg" alt="Explaining Firefox OS" class="middle shadow">
+    <footer class="notes">
+      All in all we gave thousands of demos and hundreds of press interviews about the OS.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="beetle" class="slide cover"><div>
+    <section>
+      <header>
+        <h2>The VW Beetle of Smartphones</h2>
+      </header>
+      <img src="pictures/moosecon/kaefer.jpg" alt="VW Beetle" class="middle shadow">
+    <footer class="notes">
+      Sometimes it was tough to describe what Firefox OS is and how it differentiates itself from the already existing mobile platforms. The most basic explanation for non-technical journalists I could come up with was that Firefox OS is the VW Beetle of Smartphones. The original Beetle, that is.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="greatthings" class="slide"><div>
+    <section>
+      <header>
+        <h2>The VW Beetle of Smartphones?</h2>
+      </header>
+      <ul class="inner">
+        <li class="active">Affordable by everyone</li>
+        <li>Built on sturdy technology</li>
+        <li>Lots of interchangeable parts - adding and upgrading is easy</li>
+        <li>Built on a trusted engine that doesn't boil over</li>
+        <li>Making mobility and independence affordable</li>
+      </ul>
+    <footer class="notes">
+      When the Beetle got released, its main goal was to be affordable by everyone and almost impossible to break. Its engineering and air-cooled engine made it a very sturdy means of transportation for people who beforehand couldn't afford a car.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="featurephones" class="slide"><div>
+    <section>
+      <header>
+        <h2>Replacing feature phones</h2>
+      </header>
+      <figure class="middle shadow frame">
+      <img src="pictures/moosecon/nokia-photos.jpg" 
+           alt="Nokia couldn't take photos"
+           height="400">
+      </figure>
+      <footer class="notes">
+        Comparing Firefox OS with Android or iOS head-on is therefore a pointless idea. The aim of Firefox OS is to replace feature phones in emerging markets. True to the main goal of Mozilla to keep the web open and affordable to everyone. It can not be that a means of mass communication and information is only for the rich in certain markets. The web is a voice for a lot of people who can not speak otherwise as their mass media is controlled. Therefore mobile web access needs to be affordable and easy for everyone.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="recycle" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>HTML5 through and through&hellip;</h2>
+      </header>
+      <img src="pictures/moosecon/volkswagen-recycling.jpg" alt="Beetle Parts">
+      <small class="credits">
+        <a href="http://www.flickr.com/photos/autohistorian/5732870512/">Photo by Alden Jewell</a>
+      </small>
+    <footer class="notes">
+      The one and only technology used in Firefox OS is HTML5. The interface of the operating system is written in it, all apps are and the access to the hardware is defined in JavaScript APIs. This means that we can re-use a lot of the already existing code on the web and the system is very easy to upgrade and extend. Apps tend to be smaller and simpler, but also more cost-efficient to use. This is also something that is very important in emerging markets.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="cant" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2 style="text-align:center">But HTML5 can't do&hellip;</h2>
+      </header>
+      <img src="pictures/moosecon/pouting-dog.jpg" height="400" alt="Pouting dog" class="middle shadow">
+    <footer class="notes">
+      Almost everyone we talked to at Mobile World Congress had preconceptions of HTML5 being unable to do certain things that native apps can. This ranged from 3D gaming up to working offline. Most of these assumptions are wrong, and the reason is how we measure the usefulness of HTML5.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="iphone" class="slide"><div>
+    <section>
+      <header>
+        <h2>False measures</h2>
+      </header>
+      <img src="pictures/moosecon/html5-not-iphone.png" width="800" alt="HTML5 is more than the iphone" class="middle shadow">
+    <footer class="notes">
+      A lot of what HTML5 is accused of failing at is actually the fault of native platforms not allowing browsers to access function-critical hardware, or plain wrong implementations in stock browsers. This issue is exacerbated as stock browsers only update when the OS updates. That way older hardware is doomed to display HTML5 sub-par. 
+    </footer>
+    </section>
+  </div></div>
+
+   <div id="webapis" class="slide"><div>
+    <section>
+      <header>
+        <h2>Give me that hardware!</h2>
+      </header>
+      <img src="pictures/moosecon/hardware-blowup.png" 
+           alt="Hardware blowup" 
+           class="middle shadow">
+      <p class="demourl">
+        <a href="https://wiki.mozilla.org/WebAPI">https://wiki.mozilla.org/WebAPI</a>
+      </p>      
+      <footer class="notes">
+        This was one of the main reasons why Mozilla came up with Firefox OS - back then called Boot to Gecko. We wanted to find a way to access the hardware that makes mobile devices interesting from the web stack. And that we did. Using open standards - the Web APIs - defined and shared across the market we allow JavaScript developer to access the hardware in mobile devices directly without having to convert to Java or Objective-C.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="openwebapps" class="slide cover"><div>
+    <section>
+      <header>
+        <h2>Open Web Apps?</h2>
+      </header>
+      <img src="pictures/moosecon/beetle-pimped.jpg" 
+           alt="Pimped Beetle" 
+           class="middle shadow">
+       <p class="demourl">
+       <a href="https://developer.mozilla.org/en-US/docs/Apps">https://developer.mozilla.org/en-US/docs/Apps</a>
+     </p>    
+    <footer class="notes">
+      Of course from a security point of view there is no way we can allow any unknown server and code to access all the hardware on the device. That is why Firefox OS runs a packaged App format called Open Web Apps.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="marketplace" class="slide"><div>
+    <section>
+      <header>
+        <h2>Marketplace ✔</h2>
+      </header>
+      <figure class="middle shadow frame">
+      <img src="pictures/moosecon/firefoxmarketplace.jpg" 
+           alt="Firefox marketplace" 
+           height="400">
+      </figure>     
+      <p class="demourl">
+        <a href="https://marketplace.firefox.com/">Firefox Marketplace</a>
+      </p>
+      <footer class="notes">
+        Firefox OS has a marketplace for apps - much like any other platform out there. The Marketplace itself is an HTML5 app based on APIs for installing, de-installing and billing for apps. This allows partners to also build their own white-labeled marketplaces.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="everything" class="slide"><div>
+    <section>
+      <header>
+        <h2>Find app by content ✔</h2>
+      </header>
+      <img src="pictures/moosecon/everythingme.jpg" 
+           alt="The search interface of Firefox OS" 
+           height="450"
+           class="middle">
+      <footer class="notes">
+        The really cool differentiator though is that as the apps are HTML5, they can be indexed and searched. That way Firefox OS offers a functionality to search apps by content type. This means that if you enter the name of a band, you get apps with their music, their lyrics, videos or just information about them offered to you. These are mobile HTML5 apps which means you can try them out and install them in a second step if you like them. A try before you buy so to say. With Firefox OS we made apps as easy to discover and consume as the web is right now.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="manifest" class="slide"><div>
+    <section>
+      <header>
+        <h2>Defined by manifest</h2>
+      </header>
+      <pre>
+        <code>{</code>
+        <code>  "name": "My App",</code>
+        <code>  "description": "My elevator pitch goes here",</code>
+        <code>  "launch_path": "/",</code>
+        <code>  "icons": { "128": "/img/icon-128.png" },</code>
+        <code>  "developer": {</code>
+        <code>    "name": "Your name or organization",</code>
+        <code>    "url": "http://your-homepage-here.org"</code>
+        <code>  }</code>
+        <code>}</code>
+      </pre>
+      <p class="demourl"><a href="https://developer.mozilla.org/en-US/docs/Apps/Manifest">App manifest</a></p>
+    <footer class="notes">
+      You define a manifest file to describe your app and tell the workd what icons to use for it, what access it needs and which servers it can be installed from.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="threekinds" class="slide"><div>
+    <section>
+      <header>
+        <h2>Three levels of access&hellip;</h2>
+      </header>
+      <ul>
+        <li><mark>Hosted apps</mark> - stored on your server, easy to upgrade, limited access.</li>
+        <li><mark>Privileged apps</mark> - reviewed by the App store, uses a <a href="https://developer.mozilla.org/en-US/docs/Security/CSP/Introducing_Content_Security_Policy">Content Security Policy</a>, hosted on trusted server</li>
+        <li><mark>Certified apps</mark> - part of the OS, only by Mozilla and partners</li>
+      </ul>
+      <p class="demourl"><a href="https://developer.mozilla.org/en-US/docs/Apps/App_permissions">App permissions</a></p>
+    <footer class="notes">
+      Open Web Apps come in three different versions that allow for more or less access to the hardware. For third party developers, hosted and privileged apps are the ones you can build. Whilst hosted apps are allowed to do all the things HTML5 apps on the web can do, privileged apps can dig deeper into the platform.
+    </footer>
+    </section>
+  </div></div>
+
+   <div id="webapilist" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web APIs (hosted apps)</h2>
+      </header>
+      <ul class="lots">
+      <li>Vibration API</li>
+      <li>Screen Orientation</li>
+      <li>Geolocation API</li>
+      <li>Mouse Lock API</li>
+      <li>Open WebApps</li>
+      <li>Network Information API</li>
+      <li>Battery Status API</li>
+      <li>Alarm API</li>
+      <li>Push Notifications API</li>
+      <li>WebFM API / FMRadio</li>
+      <li>WebPayment</li>
+      <li>IndexedDB</li>
+      <li>Ambient light sensor</li>
+      <li>Proximity sensor</li>
+      <li>Notification</li>
+      </ul>
+      <p class="demourl">
+        <a href="https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/">Using WebAPIs to make the web layer more capable</a>
+      </p>      
+      <footer class="notes">
+        The Web APIs available to hosted apps can already get you very far. A lot of them are already available across browsers and on Desktop, like the Battery API. Interesting are also Push Notifications and Vibration for interaction with the user.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="installapp" class="slide"><div>
+    <section>
+      <header>
+        <h2>Install apps from the web</h2>
+      </header>
+        <pre>
+        <code>var installapp = navigator.mozApps.install(manifestURL);</code>
+        <code>installapp.onsuccess = function(data) {</code>
+        <code>  // App is installed</code>
+        <code>};</code>
+        <code>installapp.onerror = function() {</code>
+        <code> // App wasn't installed, info is in </code>
+        <code> // installapp.error.name</code>
+        <code>};</code>
+        </pre>
+      <footer class="notes">
+        A very simple way to make your app installable on a Firefox OS device is to use the install() method. This means you don't have to wait for a marketplace review and listing but can turn any web site into an app by people surfing to it.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="battery" class="slide"><div>
+    <section>
+      <header>
+        <h2>Battery API</h2>
+      </header>
+        <pre>
+          <code>var b = navigator.battery;</code>
+          <code>if (b) {</code>
+          <code>  var level=Math.round(battery.level * 100) + "%",</code>
+          <code>      charging=(battery.charging) ? "" : "not ",</code>
+          <code>      chargeTime=parseInt(battery.chargingTime / 60, 10),</code>
+          <code>      dischargeTime=parseInt(battery.dischargingTime/60,10);</code>
+          <code>  b.addEventListener("levelchange", show);</code>
+          <code>  b.addEventListener("chargingchange", show);</code>
+          <code>  b.addEventListener("chargingtimechange", show);</code>
+          <code>  b.addEventListener("dischargingtimechange", show);</code>
+          <code>}</code>
+        </pre>
+      <footer class="notes">
+        Using the battery API you can notify the user when the energy level is low and offer for example to switch to a simpler interface or to send a warning that a long download might not work out.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="webapilistprivileged" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web APIs (privileged apps)</h2>
+      </header>
+      <ul>
+        <li>Device Storage API</li>
+        <li>Browser API</li>
+        <li>TCP Socket API</li>
+        <li>Contacts API</li>
+        <li>systemXHR</li>
+      </ul>
+      <p class="demourl">
+        <a href="https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/">Using WebAPIs to make the web layer more capable</a>
+      </p>      
+      <footer class="notes">
+        Privileged apps can do more than hosted ones as the server is certified and known. For example you can call other (CORS enabled) servers with XHR or store and read content on the device outside of indexedDB.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="contactsapi" class="slide"><div>
+    <section>
+      <header>
+        <h2>Contacts API</h2>
+      </header>
+        <pre>
+          <code>var contact = new mozContact();</code>
+          <code>contact.init({name: "Christian"});</code>
+          <code>var request = navigator.mozContacts.save(contact);</code>
+          <code>request.onsuccess = function() {</code>
+          <code>  // contact generated</code>
+          <code>};</code>
+          <code>request.onerror = function() {</code>
+          <code>  // contact generation failed</code>
+          <code>};</code>
+        </pre>
+      <footer class="notes">
+        For a hosted, privileged app it is simple to create a new contact. That enables you to sync address books across services, for example.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="webapilistcertified" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web APIs (certified apps)</h2>
+      </header>
+        <ul class="lots">
+          <li>WebTelephony</li>
+          <li>WebSMS</li>
+          <li>Idle API</li>
+          <li>Settings API</li>
+          <li>Power Management API</li>
+          <li>Mobile Connection API</li>
+          <li>WiFi Information API</li>
+          <li>WebBluetooth</li>
+          <li>Permissions API</li>
+          <li>Network Stats API</li>
+          <li>Camera API</li>
+          <li>Time/Clock API</li>
+          <li>Attention screen</li>
+          <li>Voicemail</li>
+        </ul>
+     <p class="demourl">
+        <a href="https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/">Using WebAPIs to make the web layer more capable</a>
+      </p>      
+      <footer class="notes">
+        Certified apps are applications that are part of the operating system and are right now only built by Mozilla and partners. They have full access to the phone's capabilities.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="cant2" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2 style="text-align:center">Why not all for hosted apps?</h2>
+      </header>
+      <img src="pictures/moosecon/pouting-dog.jpg" height="400" alt="Pouting dog" class="middle shadow">
+    <footer class="notes">
+      It can appear annoying that not all HTML5 apps can access everything in the phone but the sad truth is that it is too easy to abuse a system that would be this open. Therefore we need to have a security review and capability framework in place. This doesn't mean though that you can not access the hardware at all - it means that you can ask the end user to do it on your behalf.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="user" class="slide"><div>
+    <section>
+      <header>
+        <h2 style="text-align:center">Web Activities</h2>
+      </header>
+      <ul class="lots">
+        <li>configure</li>
+        <li>costcontrol</li>
+        <li>dial</li>
+        <li>open</li>
+        <li>pick</li>
+        <li>record</li>
+        <li>save-bookmark</li>
+        <li>share</li>
+        <li>view</li>
+        <li>new, f.e type: “websms/sms” or “webcontacts/contact” </li>
+      </ul>
+      <p class="demourl"><a href="https://wiki.mozilla.org/WebAPI/WebActivities">https://wiki.mozilla.org/WebAPI/WebActivities</a></p>
+    <footer class="notes">
+      Web Activities is a standards proposal to trigger a user interaction that is part of the operating system. Instead of using the functionality of the OS you use it with a user-initiated action. That way you don't have the security issue you'd have by accessing the functionality on behalf of the users and without notifying them. This is a concept from Android where it is called intents. Chrome until recently also had Web Intents but pulled them a short while ago because of UX issues on the Desktop.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="pick" class="slide"><div>
+    <section>
+      <header>
+        <h2 style="text-align:center">Giving control to the user</h2>
+      </header>
+      <img src="pictures/moosecon/pick-activity.jpg" alt="Pick activity" class="middle shadow">
+    <footer class="notes">
+      When initiating a Web Activity, the end user gets prompted to allow it. For example a pick activity would ask them to get images from the pictures or wallpaper folder or take a new photo. This is the beauty of activities - as a developer I don't care where content comes from or where it goes. Instead I leave that up to the user. Much like a right-click on any file on your hard-drive allows you to open it in your program of choice. 
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="callactivity" class="slide"><div>
+    <section>
+      <header>
+        <h2>Sending a number to the phone</h2>
+      </header>
+      <pre>
+        <code>var call = new MozActivity({</code>
+        <code>  name: "dial",</code>
+        <code>  data: {</code>
+        <code>    number: "+1804100100"</code>
+        <code>  }</code>
+        <code>});</code>
+      </pre>
+    <footer class="notes">
+      This is all that is needed to send a phone number to the dialer. All the user needs to do is hit the receiver button to call it.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="imageactivity" class="slide"><div>
+    <section>
+      <header>
+        <h2>Get an image from the phone (1/2)</h2>
+      </header>
+      <pre>
+        <code>var getphoto = new MozActivity({</code>
+        <code>  name: "pick",</code>
+        <code>  data: {</code>
+        <code>    type: ["image/png", "image/jpg", "image/jpeg"]</code>
+        <code>  }</code>
+        <code>});</code>
+  </pre>
+    <footer class="notes">
+      Getting an image is done by invoking the pick activity and defining the type of files you expect. 
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="imageactivity2" class="slide"><div>
+    <section>
+      <header>
+        <h2>Get an image from the phone (2/2)</h2>
+      </header>
+      <pre>
+        <code>getphoto.onsuccess = function () {</code>
+        <code>  var img = document.createElement("img");</code>
+        <code>  if (this.result.blob.type.indexOf("image") != -1) {</code>
+        <code>    img.src = window.URL.createObjectURL(this.result.blob);</code>
+        <code>  }</code>
+        <code>};</code>
+        <code>getphoto.onerror = function () { // error</code>
+        <code>};</code>
+  </pre>
+    <footer class="notes">
+      Once invoked, you have success and error event handlers to retrieve the image as a blob.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="gettingstarted" class="slide"><div>
+    <section>
+      <header>
+        <h2>You want some of that?</h2>
+      </header>
+      <img src="pictures/moosecon/pawing-puppy.gif" 
+           alt="Pawing Puppy" 
+           height="400"
+           class="middle shadow">
+      <footer class="notes">
+        I hope you now have some idea of how amazing an offer Firefox OS is for developers and how it gives HTML5 the platform it deserves. Following is now information where you can go to learn more.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="developerhub" class="slide"><div>
+    <section>
+      <header>
+        <h2>Developer Hub</h2>
+      </header>
+      <img src="pictures/moosecon/devhub.jpg" 
+           alt="Developer Hub" 
+           height="400"
+           class="middle shadow">
+      <p class="demourl">
+        <a href="https://marketplace.firefox.com/developers/">Firefox OS Developer Hub</a>
+      </p>
+      <footer class="notes">
+        The Firefox OS Developer Hub is where we put all the info you need. You find design guidelines, demo apps and tools to validate your app manifest and get started with the submission process to the Marketplace.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="devtools" class="slide"><div>
+    <section>
+      <header>
+        <h2>Developer tools</h2>
+      </header>
+      <img src="pictures/moosecon/devtools.jpg" 
+           alt="Firefox devtools" 
+           height="460" 
+           class="middle shadow">
+    <footer class="notes">
+      A lot of people ask about IDEs and development environments. There are no fixes ones. As Firefox OS uses the same engine as Firefox on Desktop you can use the Developer Tools in the browser to get 90% of the way to your own app. You can use the Responsive Design Mode to see your app in 320 x 480 resolution and you can analyse the CSS, JavaScript and net requests with the in-build inspectors.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="simulator" class="slide"><div>
+    <section>
+      <header>
+        <h2>Simulator in the browser</h2>
+      </header>
+      <img src="pictures/moosecon/firefoxossimulator.png" 
+           alt="Simulator" 
+           height="400"
+           class="middle shadow">
+      <p class="demourl">
+        <a href="https://hacks.mozilla.org/2012/12/firefox-os-simulator-1-0-is-here/">Firefox OS Simulator 1.0 is here!</a>
+      </p>
+      <footer class="notes">
+        The Firefox Simulator is an add-on for the browser that gives you a full Firefox OS instance in an own window, complete with debugging console and the opportunity to install local apps without needing a server. 
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="boilerplate" class="slide"><div>
+    <section>
+      <header>
+        <h2>Firefox OS Boilerplate</h2>
+      </header>
+      <img src="pictures/moosecon/boilerplate.png" 
+           alt="Boilerplate App" 
+           height="400"
+           class="middle shadow">
+      <p class="demourl">
+        <a href="https://github.com/robnyman/Firefox-OS-Boilerplate-App">Boilerplate App on GitHub</a>
+      </p>
+      <footer class="notes">
+        My colleague Robert Nyman maintains a great demo app on GitHub that acts as a perfect starting point for your app. It has a responsive interface and demo buttons to invoke all the web activities. All you need to do is to remove the ones you don't need and add your functionality. 
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="geeksphone" class="slide"><div>
+    <section>
+      <header>
+        <h2>Phones for developers</h2>
+      </header>
+      <img src="pictures/moosecon/keon.png" 
+           alt="Geeksphone" 
+           height="400"
+           class="middle shadow">
+      <p class="demourl">
+        <a href="http://www.geeksphone.com/">Geeksphone.com</a>
+      </p>
+      <footer class="notes">
+        If you want to get your hands on a Firefox OS device before it comes to the market, there is a company called Geeksphone in Spain that offers affordable developer mobiles with the same specifications. You can pre-order them now. 
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="android" class="slide"><div>
+    <section>
+      <header>
+        <h2>Activities/Hosted Apps on Android</h2>
+      </header>
+      <figure class="middle shadow swing frame"><img src="pictures/moosecon/foxkeh-android.png" 
+           alt="Foxkeh loves android" 
+           ></figure>
+      <footer class="notes">
+        Even if you don't care for Firefox OS, using Firefox on Android brings a lot of the functionality of the operating system to Android phones. This makes it possible to even bring very outdated mobiles up to date on HTML5 support.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="ride" class="slide"><div>
+    <section>
+      <header>
+        <h2>The web ride is far from over!</h2>
+      </header>
+      <img src="pictures/moosecon/ride.gif" 
+           alt="There is no earthly way of knowing which direction we are going" 
+           height="450"
+           class="middle">
+      <footer class="notes">
+        All in all we can be assured that the web is far from dead and replaced by walled gardens. If anything, I am sure that a lot of predictions that everything just works in one environment and as developers it makes most sense to concentrate on that will become very much outdated this year. The web is an existing, world-wide distribution platform and reaches millions of people already with many more to come. Firefox OS is one step to bring web mobile connectivity to those who can not afford the other platforms. This is exciting and very much in the spirit of the web. And nothing stops you from packaging your HTML5 apps as native. The other way around doesn't work.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks, join us!</h2>
+      </header>
+        <figure class="frame middle swing">
+        <img src="pictures/appdays/thats-all-fox.jpg"
+             width="600" 
+             alt="that's all firefox">
+        </figure>
+      <ul class="oneline demourl">
+        <li>Chris Heilmann</li>
+        <li><a href="http://twitter.com/codepo8">@codepo8</a></li>
+        <li><a href="http://icant.co.uk/talks/h5/moosecon.html">
+          http://icant.co.uk/talks/h5/moosecon.html
+        </a></li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <!-- <div class="progress"><div></div></div> -->
+  <!-- 
+    ^ don't like a progress bar? just delete this DIV
+  -->
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
